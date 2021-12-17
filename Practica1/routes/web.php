@@ -1,21 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\ContadorController;
+use App\Http\Controllers\IdiomaController;
+use App\Http\Controllers\Pais;
+
+use App\Http\Middleware\pepito;
+use App\Http\Middleware\middleware2;
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register web routes for your application. These
+  | routes are loaded by the RouteServiceProvider within a group which
+  | contains the "web" middleware group. Now create something great!
+  |
+ */
 
-Route::view('/','welcome');
+Route::view('/', 'welcome');
+
+//Route::view('/idioma', 'idioma');
+
+Route::get('/{lang}/idioma', [IdiomaController::class, 'idioma']);
 
 //Para el funcionamiento de las cookies
 Route::get('/visitas', ContadorController::class);
@@ -25,7 +33,11 @@ Route::get('/visitas/{numero}', [ContadorController::class, 'parametros']);
 //Para llamar a la agenda
 Route::view('/agenda', 'agenda');
 
+route::middleware('pepito')->get('pepito', function(){});
 
+route::get('middleware', function(){});
+
+Route::get('/paises', [Pais::class, 'index']);
 /*
 Route::get('/', function(){
     return view('contador');
