@@ -62,5 +62,3 @@ Route::get('bienvenido/{$name}',function($name){
     return view('welcome',compact('name'));
 });
 Route::get('/visitas', ContadorController::class)*/
-
-
