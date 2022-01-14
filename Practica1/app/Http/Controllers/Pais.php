@@ -20,9 +20,18 @@ class Pais extends Controller {
             $paises = Paises::all();
             //foreach (Paises::all() as $pais) {
 //echo $pais->nombre . "<br>";
+<<<<<<< HEAD
             return view('paisesIndex', ['paises' => $paises]);
 
             // echo $pais->nombre . "<br>";
+=======
+                return view('paisesIndex', ['paises' => $paises]);
+            
+
+            // echo $pais->nombre . "<br>";
+        } else {
+            //echo "fallo";
+>>>>>>> 9bb77b7588a3acf31b216304e6a41bf6bc2d9a95
         }
         Abort(403);
     }
