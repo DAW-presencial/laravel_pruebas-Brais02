@@ -15,14 +15,16 @@ class Pais extends Controller {
      * @return Response
      */
     public function index() {
-        
+
         if (Gate::allows('pais-prueba')) {
-           foreach (Paises::all() as $pais) {
-                echo $pais->nombre . "<br>";
-            }
-        } else {
-            //echo "fallo";
+            $paises = Paises::all();
+            //foreach (Paises::all() as $pais) {
+//echo $pais->nombre . "<br>";
+            return view('paisesIndex', ['paises' => $paises]);
+
+            // echo $pais->nombre . "<br>";
         }
+        Abort(403);
     }
 
     /**
