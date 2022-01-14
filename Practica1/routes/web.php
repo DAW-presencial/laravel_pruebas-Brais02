@@ -42,7 +42,7 @@ Route::view('/agenda', 'agenda');
 
 route::middleware('pepito')->get('pepito', function(){});
 
-Route::get('/paises', [Pais::class, 'index'])->middleware('auth');
+Route::get('/{lang}/paises', [Pais::class, 'index'])->middleware('auth');
 /*
 Route::get('/', function(){
     return view('contador');

@@ -1,9 +1,13 @@
 <?php
-
+//Ingles
 return [
+    'tituloindex' => 'List of all the Countries',
+    'error' => 'The server has an error!',
+    'editar' => 'Edit',
+    'borrar' => 'Delete',
     'contrasena' => 'Insert the password:',
     'correo' => 'Insert the Electronic Mail:',
     'g' => 'Save',
-    'g' => 'Save',
-
+    'espanol' => 'Spanish',
+    'ingles' => 'English',
 ];

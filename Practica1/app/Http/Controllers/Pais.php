@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Paises;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
 
 class Pais extends Controller {
@@ -14,18 +15,17 @@ class Pais extends Controller {
      *
      * @return Response
      */
-    public function index() {
-
+    public function index($lang) {
+        App::setLocale($lang);
         if (Gate::allows('pais-prueba')) {
+
             $paises = Paises::all();
             //foreach (Paises::all() as $pais) {
-//echo $pais->nombre . "<br>";
+            //echo $pais->nombre . "<br>";
 
             return view('paisesIndex', ['paises' => $paises]);
-        } else {
-            Abort(403);
         }
-        
+        Abort(403);
     }
 
     /**
