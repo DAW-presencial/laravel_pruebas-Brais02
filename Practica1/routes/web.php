@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContadorController;
 use App\Http\Controllers\IdiomaController;
 use App\Http\Controllers\Pais;
+use App\Http\Controllers\Personas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,7 +43,10 @@ Route::view('/agenda', 'agenda');
 
 route::middleware('pepito')->get('pepito', function(){});
 
-Route::get('/paises', [Pais::class, 'index'])->middleware('auth');
+Route::resource('paises', Pais::class);
+
+Route::resource('/personas', Personas::class)->middleware('auth');
+
 /*
 Route::get('/', function(){
     return view('contador');
