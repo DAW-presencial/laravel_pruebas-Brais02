@@ -29,6 +29,13 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('pais-prueba', function(){
             return true;
         });
+        
+        Gate::define('crear-persona', 'App\Policies\PersonaPolicy@create');
+        
+        /* Funciona pero es sin policies
+         * Gate::define('crear-persona', function($user){
+            return $user->role == 'admin';
+        });*/
         //
     }
 }

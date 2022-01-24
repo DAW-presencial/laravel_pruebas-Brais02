@@ -9,6 +9,7 @@
         <div class="container">
             <a href="{{ url('es/personas') }}"><button class="btn btn-light btn-sm">@lang('formulario.espanol')</button></a>
             <a href="{{ url('en/personas') }}"><button class="btn btn-light btn-sm">@lang('formulario.ingles')</button></a>
+            <a href="{{ url('/dashboard') }}"><button class="btn btn-light btn-sm">Ir al Dashboard</button></a>
             @yield('content')
         </div>
 
