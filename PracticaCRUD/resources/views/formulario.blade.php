@@ -13,35 +13,40 @@
             <div class="card-header">Editando a <i>Prueba</i></div>
             <div class="card-body">
                 <form>
+                    @csrf
+
                     <label for="nombre">@lang('formulario.nombreC'):</label>
                     <input type="text" id="nombre" name="nombre" class="form-control" required><br>
 
                     <label for="numero">@lang('formulario.numeroC'):</label>
-                    <input type="number" id="numero" name="numero" class="form-control" required><br>
+                    <input type="number" id="numero" name="numero" class="form-control" required value="{{ old('numero', $curso->numero ?? '') }}"><br>
 
                     <label for="fecha">@lang('formulario.fechaC'):</label>
-                    <input type="date" id="fecha" name="fecha" class="form-control" required><br>
+                    <input type="date" id="fecha" name="fecha" class="form-control" required value="{{ old('fecha', $curso->fecha ?? '') }}"><br>
 
                     <label>@lang('formulario.etiquetasC'):</label><br>
-                    <input type="checkbox" id="etiqueta1" name="etiqueta1" value="Informatica">
+                    <input type="checkbox" id="etiqueta1" name="etiqueta1" value="Informatica" {{ (old('etiqueta1') == "Informatica") ? "checked" : "" }}>
                     <label for="etiqueta1">@lang('formulario.tic')</label><br>
-                    <input type="checkbox" id="etiqueta2" name="etiqueta2" value="Historia">
+                    <input type="checkbox" id="etiqueta2" name="etiqueta2" value="Historia" {{ (old('etiqueta2') == "Historia") ? "checked" : "" }}>
                     <label for="etiqueta2">@lang('formulario.historia')</label><br><br>
 
                     <label>@lang('formulario.tipoC'):</label><br>
-                    <input type="radio" id="pago" name="tipoCurso" value="Pago">
+                    <input type="radio" id="pago" name="tipoCurso" value="Pago" {{ (old('tipoCurso') == "Pago") ? "checked" : "" }}>
                     <label for="pago">@lang('formulario.pago')</label><br>
-                    <input type="radio" id="gratis" name="tipoCurso" value="Gratis">
+                    <input type="radio" id="gratis" name="tipoCurso" value="Gratis" {{ (old('tipoCurso') == "Gratis") ? "checked" : "" }}>
                     <label for="gratis">@lang('formulario.gratis')</label><br><br>
 
                     <label for="descripcion">@lang('formulario.descripcionC'):</label>
-                    <textarea id="descripcion" name="descripcion" class="form-control"></textarea><br>
+                    <textarea id="descripcion" name="descripcion" class="form-control">{{ old('descripcion') }}</textarea><br>
+
+                    <label for="nivelC">@lang('formulario.escogerDificultad'):</label>
+                    <select name="nivelC" id="nivelC" required>
+                        <option value="facil" @if (old('nivelC') === 'facil' ) selected @endif >@lang('facil')</option>
+                        <option value="media" @if (old('nivelC') === 'media' ) selected @endif >@lang('media')</option>
+                        <option value="dificil" @if (old('nivelC') === 'dificil' ) selected @endif >@lang('dificil')</option>
+                    </select><br>
 
                     <button type="submit" class="btn btn-success">@lang('formulario.submit')</button>
-                    <!-- NO SE QUE ES EL SELECT
-                    <label for="lname">Last name:</label>
-                    <input type="select" id="lname" name="lname"><br> -->
-
                 </form>
             </div>
         </div>

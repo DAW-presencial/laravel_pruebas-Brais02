@@ -21,6 +21,7 @@ class CursosTable extends Migration
             $table->enum('etiquetas', ['informatica', 'historia'])->nullable(); //Checkbox
             $table->boolean('pago')->default('false')->nullable(); //Radio button
             $table->text('descripcion')->nullable();
+            $table->enum('dificultad', ['facil', 'media', 'dificil']);
             $table->timestamps();
         });
     }
