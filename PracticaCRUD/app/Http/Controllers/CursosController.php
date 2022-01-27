@@ -6,19 +6,24 @@ use App\Models\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
+use App\Providers\RouteServiceProvider;
 use function view;
 
-class CursosController extends Controller
-{
+class CursosController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index($lang)
-    {
+    public function index($lang) {
         App::setLocale($lang);
-        return view('formulario');
+
+        
+        //$cursos = Curso::all();
+        return view('Curso.crear'/*, [
+           'cursos' => $cursos
+        ]*/);
     }
 
     /**
@@ -26,8 +31,7 @@ class CursosController extends Controller
      *
      * @return Response
      */
-    public function create()
-    {
+    public function create() {
         
     }
 
@@ -37,9 +41,19 @@ class CursosController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        Persona::create($request->all());
+
+        /* El apartado 9
+         * Redirigir a HOME en app/Providers/RouteServiceProvider, 
+         * el valor que tiene HOME debe existir en web.php
+         */
+        return redirect(RouteServiceProvider::HOME);
+        
+        /* Redirigir a Home, no funciona
+         * redirect(RouteServiceProvider::HOME);
+         * redirect()->route(RouteServiceProvider::HOME);
+         */
     }
 
     /**
@@ -48,8 +62,7 @@ class CursosController extends Controller
      * @param  Curso  $curso
      * @return Response
      */
-    public function show(Curso $curso)
-    {
+    public function show(Curso $curso) {
         //
     }
 
@@ -59,8 +72,7 @@ class CursosController extends Controller
      * @param  Curso  $curso
      * @return Response
      */
-    public function edit(Curso $curso)
-    {
+    public function edit(Curso $curso) {
         //
     }
 
@@ -71,8 +83,7 @@ class CursosController extends Controller
      * @param  Curso  $curso
      * @return Response
      */
-    public function update(Request $request, Curso $curso)
-    {
+    public function update(Request $request, Curso $curso) {
         //
     }
 
@@ -82,8 +93,8 @@ class CursosController extends Controller
      * @param  Curso  $curso
      * @return Response
      */
-    public function destroy(Curso $curso)
-    {
+    public function destroy(Curso $curso) {
         //
     }
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CursosController;
+//use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,8 @@ Route::get('/', function () {
 });
 
 Route::resource('/{lang}/formulario', CursosController::Class);
+
+/* Redirigir a HOME en app/Providers/RouteServiceProvider
+Route::get(RouteServiceProvider::HOME, function(){
+    return view('welcome');
+});*/
