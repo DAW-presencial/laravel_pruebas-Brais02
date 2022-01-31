@@ -19,9 +19,9 @@ return [
     'facil' => 'Fácil',
     'media' => 'Media',
     'dificil' => 'Hard',
-        /* 'ver' => 'Ver',
-          'editar' => 'Editar',
-          'borrar' => 'Borrar',
-          'g' => 'guardar', */
+    'ver' => 'Ver',
+    'editar' => 'Editar',
+    'borrar' => 'Borrar',
+    'g' => 'guardar',
 ];
 

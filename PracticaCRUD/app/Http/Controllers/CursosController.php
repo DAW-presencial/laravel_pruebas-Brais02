@@ -20,10 +20,10 @@ class CursosController extends Controller {
         App::setLocale($lang);
 
         
-        //$cursos = Curso::all();
-        return view('Curso.crear'/*, [
+        $cursos = Curso::all();
+        return view('Curso.index', [
            'cursos' => $cursos
-        ]*/);
+        ]);
     }
 
     /**
@@ -31,8 +31,9 @@ class CursosController extends Controller {
      *
      * @return Response
      */
-    public function create() {
-        
+    public function create($lang) {
+        App::setLocale($lang);
+        return view('Curso.crear');
     }
 
     /**
@@ -42,7 +43,7 @@ class CursosController extends Controller {
      * @return Response
      */
     public function store(Request $request) {
-        Persona::create($request->all());
+        Curso::create($request->all());
 
         /* El apartado 9
          * Redirigir a HOME en app/Providers/RouteServiceProvider, 
@@ -62,8 +63,8 @@ class CursosController extends Controller {
      * @param  Curso  $curso
      * @return Response
      */
-    public function show(Curso $curso) {
-        //
+    public function show(Curso $curso, $lang) {
+        App::setLocale($lang);
     }
 
     /**
@@ -73,7 +74,8 @@ class CursosController extends Controller {
      * @return Response
      */
     public function edit(Curso $curso) {
-        //
+        $curso = Curso::find($curso);
+        return view('Personas.edit')->with('curso', $curso);
     }
 
     /**
@@ -94,7 +96,8 @@ class CursosController extends Controller {
      * @return Response
      */
     public function destroy(Curso $curso) {
-        //
+        Persona::destroy($curso);
+        return redirect(RouteServiceProvider::HOME);
     }
 
 }
