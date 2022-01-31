@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CursoRequest;
 use App\Models\Curso;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
-use App\Providers\RouteServiceProvider;
+use function redirect;
 use function view;
 
 class CursosController extends Controller {
@@ -42,7 +44,7 @@ class CursosController extends Controller {
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request) {
+    public function store(CursoRequest $request) {
         Curso::create($request->all());
 
         /* El apartado 9
@@ -85,7 +87,7 @@ class CursosController extends Controller {
      * @param  Curso  $curso
      * @return Response
      */
-    public function update(Request $request, Curso $curso) {
+    public function update(CursoRequest $request, Curso $curso) {
         //
     }
 
