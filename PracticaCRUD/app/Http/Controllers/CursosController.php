@@ -21,7 +21,6 @@ class CursosController extends Controller {
     public function index($lang) {
         App::setLocale($lang);
 
-        
         $cursos = Curso::all();
         return view('Curso.index', [
            'cursos' => $cursos
@@ -67,6 +66,9 @@ class CursosController extends Controller {
      */
     public function show(Curso $curso, $lang) {
         App::setLocale($lang);
+        
+        $curso = Curso::find(last(request()->segments()));
+        return view('Curso.show', compact['curso']);
     }
 
     /**
@@ -75,8 +77,9 @@ class CursosController extends Controller {
      * @param  Curso  $curso
      * @return Response
      */
-    public function edit(Curso $curso) {
-        $curso = Curso::find($curso);
+    public function edit($lang) {
+        App::setLocale($lang);
+        $curso = Curso::find(last(request()->segments()));
         return view('Personas.edit')->with('curso', $curso);
     }
 
@@ -98,7 +101,7 @@ class CursosController extends Controller {
      * @return Response
      */
     public function destroy(Curso $curso) {
-        Persona::destroy($curso);
+        Curso::destroy($curso);
         return redirect(RouteServiceProvider::HOME);
     }
 

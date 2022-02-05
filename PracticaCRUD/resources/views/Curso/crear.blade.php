@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <title>Formulario</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    </head>
-    <a href="{{ url('es/formulario/create') }}"><button class="btn btn-light btn-sm">@lang('formulario.espanol')</button></a>
-    <a href="{{ url('en/formulario/create') }}"><button class="btn btn-light btn-sm">@lang('formulario.ingles')</button></a>
-    <a href="{{ url('/') }}"><button class="btn btn-light btn-sm">Ir al Dashboard</button></a>
+@extends('Curso.layout')
+@section('content')
 
-    @if($errors->any())
+   @if($errors->any())
     <ul class='red'>
         @foreach($errors->all() as $error)
         <li class="text-danger">{{$error}}</li> 
@@ -65,3 +58,4 @@
         </div>
     </div>
 </html>
+@endsection

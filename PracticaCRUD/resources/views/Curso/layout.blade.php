@@ -7,12 +7,25 @@
     <body>
 
         <div class="container">
-            <a href="{{ url('es/personas') }}"><button class="btn btn-light btn-sm">@lang('formulario.espanol')</button></a>
-            <a href="{{ url('en/personas') }}"><button class="btn btn-light btn-sm">@lang('formulario.ingles')</button></a>
-            <a href="{{ url('/dashboard') }}"><button class="btn btn-light btn-sm">Ir al Dashboard</button></a>
-            @yield('content')
+
+            @if(last(request()->segments()) == "formulario")
+            <a href="{{ url('es/formulario/') }}">
+                @else
+                <a href=" {{url('es/formulario/'. last(request()->segments()) ) }}"> 
+                    @endif
+                    <button class="btn btn-light btn-sm">@lang('formulario.espanol')</button></a>
+
+                @if(last(request()->segments()) == "formulario")
+                <a href="{{ url('en/formulario/') }}">
+                    @else
+                    <a href=" {{url('en/formulario/'. last(request()->segments()) ) }}"> 
+                        @endif
+                        <button class="btn btn-light btn-sm">@lang('formulario.ingles')</button></a>
+                    <a href="{{ url('/') }}"><button class="btn btn-light btn-sm">Ir al Dashboard</button></a>
+                    @yield('content')
         </div>
 
     </body>
 </html>
+
 

@@ -25,7 +25,7 @@ class CursoRequest extends FormRequest {
             'nombre' => 'required',
             'numero' => 'required',
             'fecha' => 'required',
-            'etiquetas' => 'nullable',
+            'multilenguaje' => 'nullable',
             'pago' => 'nullable',
             'descripcion' => 'required',
             'dificultad' => 'required',

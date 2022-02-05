@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'accepted'             => 'Este campo debe ser aceptado.',
+    'accepted'             => 'El campo :attribute debe ser aceptado.',
     'accepted_if'          => 'Este campo debe ser aceptado cuando :other sea :value.',
     'active_url'           => 'Esta no es una URL válida.',
     'after'                => 'Debe ser una fecha después de :date.',

@@ -18,7 +18,7 @@ class CursosTable extends Migration
             $table->string('nombre');
             $table->integer('numero');
             $table->date('fecha');
-            $table->enum('etiquetas', ['informatica', 'historia'])->nullable(); //Checkbox
+            $table->boolean('multilenguaje')->default('false')->nullable(); //Checkbox
             $table->boolean('pago')->default('false')->nullable(); //Radio button
             $table->text('descripcion')->nullable();
             $table->enum('dificultad', ['facil', 'media', 'dificil']); //Select

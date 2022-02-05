@@ -2,6 +2,7 @@
 
 //Español
 return [
+    /* Formulario de Creación */
     'nombreC' => 'Nombre del curso',
     'numeroC' => 'Numero de clases',
     'fechaC' => 'Fecha de subida',
@@ -18,10 +19,16 @@ return [
     'escogerDificultad' => 'Escoge el tipo de dificultad del contenido',
     'facil' => 'Fácil',
     'media' => 'Media',
-    'dificil' => 'Hard',
+    'dificil' => 'Dificil',
+    
+    /* Index */
     'ver' => 'Ver',
     'editar' => 'Editar',
     'borrar' => 'Borrar',
     'g' => 'guardar',
+    
+    /* Show */
+    'si' => 'Sí',
+    'no' => 'No'
 ];
 

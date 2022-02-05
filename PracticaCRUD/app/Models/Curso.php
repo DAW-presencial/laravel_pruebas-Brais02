@@ -14,7 +14,7 @@ class Curso extends Model {
         'nombre',
         'numero',
         'fecha',
-        'etiquetas',
+        'multilenguaje',
         'pago',
         'descripcion',
         'dificultad',

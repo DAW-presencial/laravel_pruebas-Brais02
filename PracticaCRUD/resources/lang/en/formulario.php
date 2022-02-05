@@ -2,10 +2,11 @@
 
 //Ingles
 return [
+    /*Formulario de Creación*/
     'nombreC' => 'Name of the Subject',
     'numeroC' => 'Number of Courses',
     'fechaC' => 'Date of the Upload',
-    'etiquetasC' => 'Tag',
+    'etiquetasC' => 'Tag', //Estos estan eliminados
     'tic' => 'Computing',
     'historia' => 'History',
     'tipoC' => 'Type of the Subject',
@@ -19,9 +20,15 @@ return [
     'facil' => 'Easy',
     'media' => 'Medium',
     'dificil' => 'Hard',
-        /* 'ver' => 'Ver',
-          'editar' => 'Editar',
-          'borrar' => 'Borrar',
-          'g' => 'guardar', */
+    
+    /*Index*/
+    'ver' => 'Watch',
+    'editar' => 'Edit',
+    'borrar' => 'Delete',
+    'g' => 'Save',
+    
+    /* Show */
+    'si' => 'Yes',
+    'no' => 'No'
 ];
 
