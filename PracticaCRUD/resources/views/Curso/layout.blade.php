@@ -8,9 +8,11 @@
 
         <div class="container">
 
+            
             @if(last(request()->segments()) == "formulario")
             <a href="{{ url('es/formulario/') }}">
                 @else
+                <a href="{{ url('es/formulario/') }}"><button class="btn btn-success btn-sm">Volver atras</button></a>
                 <a href=" {{url('es/formulario/'. last(request()->segments()) ) }}"> 
                     @endif
                     <button class="btn btn-light btn-sm">@lang('formulario.espanol')</button></a>
@@ -21,7 +23,7 @@
                     <a href=" {{url('en/formulario/'. last(request()->segments()) ) }}"> 
                         @endif
                         <button class="btn btn-light btn-sm">@lang('formulario.ingles')</button></a>
-                    <a href="{{ url('/') }}"><button class="btn btn-light btn-sm">Ir al Dashboard</button></a>
+                    <a href="{{ url('/dashboard') }}"><button class="btn btn-light btn-sm">Ir al Dashboard</button></a>
                     @yield('content')
         </div>
 

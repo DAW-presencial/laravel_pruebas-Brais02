@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CursosController;
-//use App\Providers\RouteServiceProvider;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/{lang}/formulario', CursosController::Class);
+Route::fallback(function(){
+   return view('404'); 
+});
 
-/* Redirigir a HOME en app/Providers/RouteServiceProvider
-Route::get(RouteServiceProvider::HOME, function(){
-    return view('welcome');
-});*/
+Route::resource('/{lang}/formulario', CursosController::Class)->middleware(['auth']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

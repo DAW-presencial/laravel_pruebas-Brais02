@@ -5,8 +5,6 @@
     <div class="card-header">Datos de <i>{{ $curso->nombre }}</i></div>
 
     <div class="card-body">
-        <a href="{{ url('/es/formulario') }}"><button class="btn btn-success btn-sm">Volver atras</button></a>
-
         <h5 class="card-title text-center">Usuario nº{{ $curso->id }} con nombre {{ $curso->nombre }}</h5>
         <p class="card-text">El numero de clases es: <b>{{ $curso->numero }}</b></p>
         <p class="card-text">La fecha de publicación es: <b>{{ $curso->fecha }}</b></p>

@@ -6,18 +6,10 @@
             <div class="card">
                 <div class="card-header">Contacts</div>
                 <div class="card-body">
-                    <?php /*
-                     * Este ejemplo es como hacerlo usando un Gate que llama a
-                     * una Policy 
-                     * @can('crear-persona') 
-                     * 
-                     * Forma a través de la cual se llama directamente a la policy
-                     * y al tipo de función de la misma, NO ME FUNCIONA.
-                     * @can('create', new App\Persona)
-                     */ ?>
-                   
+
+                    <a href="{{ url('/es/formulario/create') }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> @lang('formulario.crear')</button></a>
                     <br/>
-                    <br/>
+
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -37,11 +29,18 @@
                                     <td>{{ $curso->dificultad }}</td>
 
                                     <td>
-                                        <a href="{{ url('/personas/' . $curso->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> @lang('formulario.ver')</button></a>
-
-                                       
+                                        <a href="{{ url('/es/formulario/' . $curso->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> @lang('formulario.ver')</button></a>
                                         
-                                       
+                                        <a href="{{ url('/es/formulario/' . $curso->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> @lang('editar')</button></a>
+                                        
+                                        <form method="POST" action="{{ url('/es/formulario/' . $curso->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            {{ method_field('DELETE') }}
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-danger btn-sm" title="Borrar" onclick="return confirm( & quot; Confirm delete? & quot; )"><i class="fa fa-trash-o" aria-hidden="true"></i> @lang('borrar')</button>
+                                        </form>
+
+
+
                                     </td>
                                 </tr>
                                 @endforeach

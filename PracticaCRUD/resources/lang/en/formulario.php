@@ -6,9 +6,7 @@ return [
     'nombreC' => 'Name of the Subject',
     'numeroC' => 'Number of Courses',
     'fechaC' => 'Date of the Upload',
-    'etiquetasC' => 'Tag', //Estos estan eliminados
-    'tic' => 'Computing',
-    'historia' => 'History',
+    'multi' => 'Multi-language', 
     'tipoC' => 'Type of the Subject',
     'pago' => 'Payment',
     'gratis' => 'Free',
@@ -22,6 +20,7 @@ return [
     'dificil' => 'Hard',
     
     /*Index*/
+    'crear' => 'Create',
     'ver' => 'Watch',
     'editar' => 'Edit',
     'borrar' => 'Delete',
