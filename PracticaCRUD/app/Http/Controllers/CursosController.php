@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Gate;
 use function redirect;
 use function view;
 
@@ -23,7 +24,7 @@ class CursosController extends Controller {
 
         $cursos = Curso::all();
         return view('Curso.index', [
-           'cursos' => $cursos
+            'cursos' => $cursos
         ]);
     }
 
@@ -34,6 +35,9 @@ class CursosController extends Controller {
      */
     public function create($lang) {
         App::setLocale($lang);
+        if (!Gate::allows('administrador')) {
+            abort(403);
+        }
         return view('Curso.crear');
     }
 
@@ -51,7 +55,7 @@ class CursosController extends Controller {
          * el valor que tiene HOME debe existir en web.php
          */
         return redirect(RouteServiceProvider::HOME);
-        
+
         /* Redirigir a Home, no funciona
          * redirect(RouteServiceProvider::HOME);
          * redirect()->route(RouteServiceProvider::HOME);
@@ -66,9 +70,10 @@ class CursosController extends Controller {
      */
     public function show(Curso $curso, $lang) {
         App::setLocale($lang);
-        
+
+         
         $curso = Curso::find(last(request()->segments()));
-        return view('Curso.show', compact['curso']);
+        return view('Curso.show')->with('curso', $curso);
     }
 
     /**
@@ -77,10 +82,14 @@ class CursosController extends Controller {
      * @param  Curso  $curso
      * @return Response
      */
-    public function edit($lang) {
+    public function edit($id, $lang) {
         App::setLocale($lang);
-        $curso = Curso::find(last(request()->segments()));
-        return view('Personas.edit')->with('curso', $curso);
+        if (!Gate::allows('administrador')) {
+            abort(403);
+        }
+        $busqueda = request()->segments();
+        $curso = Curso::find($busqueda[2]);
+        return view('Curso.edit')->with('curso', $curso);
     }
 
     /**
@@ -90,8 +99,11 @@ class CursosController extends Controller {
      * @param  Curso  $curso
      * @return Response
      */
-    public function update(CursoRequest $request, Curso $curso) {
-        //
+    public function update(CursoRequest $request) {
+
+        $curso = Curso::find(last(request()->segments()));
+        $curso->update($request->all());
+        return redirect(RouteServiceProvider::HOME);
     }
 
     /**
@@ -101,7 +113,10 @@ class CursosController extends Controller {
      * @return Response
      */
     public function destroy(Curso $curso) {
-        Curso::destroy($curso);
+        if (!Gate::allows('administrador')) {
+            abort(403);
+        }
+        Curso::destroy(last(request()->segments()));
         return redirect(RouteServiceProvider::HOME);
     }
 

@@ -6,9 +6,7 @@ return [
     'nombreC' => 'Nombre del curso',
     'numeroC' => 'Numero de clases',
     'fechaC' => 'Fecha de subida',
-    'etiquetasC' => 'Etiquetas',
-    'tic' => 'Informática',
-    'historia' => 'Historia',
+    'multi' => 'Multilenguaje',
     'tipoC' => 'Tipo del curso',
     'pago' => 'De Pago',
     'gratis' => 'Gratuito',
@@ -22,6 +20,7 @@ return [
     'dificil' => 'Dificil',
     
     /* Index */
+    'crear' => 'Crear',
     'ver' => 'Ver',
     'editar' => 'Editar',
     'borrar' => 'Borrar',
