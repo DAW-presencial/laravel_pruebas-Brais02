@@ -8,7 +8,7 @@
         
     </head>
     <body>
-        <button onclick="api_js_index()"></button>
+        <button onclick="api_js_index()">Introducir texto</button>
         <div id="resultado">
             hola mundo
         </div>
