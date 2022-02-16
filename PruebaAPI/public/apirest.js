@@ -8,7 +8,7 @@ function api_js_index(){
     xhttp.onload = function (){
     document.getElementById('resultado').innerHTML = xhttp.responseText;
 };
-xhttp.open('GET', '/api', true);
+xhttp.open('GET', 'index.php/api/apirest', true);
 //xhttp.setRequestHeader('Content-Type', 'application/vnd.api+json')
 //xhttp.setRequestHeader('Accept', 'application/vnd.api+json')
 xhttp.send();

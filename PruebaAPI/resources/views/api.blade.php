@@ -12,6 +12,6 @@
         <div id="resultado">
             hola mundo
         </div>
-        <script src="/public/apirest.js"></script>
+        <script src="./apirest.js"></script>
     </body>
 </html>
