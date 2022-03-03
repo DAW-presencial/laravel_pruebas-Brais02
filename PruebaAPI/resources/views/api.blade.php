@@ -11,7 +11,7 @@
         <button onclick="api_js_index()">Introducir texto</button>
         <div id="resultado">
             hola mundo
-        </div>
+        </div>        
         <script src="./apirest.js"></script>
     </body>
 </html>

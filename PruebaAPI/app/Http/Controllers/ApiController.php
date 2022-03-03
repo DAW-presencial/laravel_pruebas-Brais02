@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Paises;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\AssignOp\Concat;
+
 
 class ApiController extends Controller
 {
@@ -14,7 +17,7 @@ class ApiController extends Controller
      */
     public function index()
     {
-        $paises = DB::table('paises')->get();
+        $paises = DB::table('persona')->get();
         return $paises;
     }
 
@@ -26,7 +29,17 @@ class ApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paises = Paises::create([
+            "name" => $request->nombre,
+            "email" => $request->email,
+            "dni" => $request->dni,
+            "edad" => $request->edad
+        ]);
+        
+        
+        //$paises->save();
+        return response()->json([$paises]);
+
     }
 
     /**
@@ -37,7 +50,7 @@ class ApiController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json([Paises::find($id)]);
     }
 
     /**
@@ -49,7 +62,9 @@ class ApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pais = Paises::find($id);
+        $pais->update($request->all());
+        return $pais; 
     }
 
     /**
@@ -60,6 +75,6 @@ class ApiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Paises::destroy($id);
     }
 }
